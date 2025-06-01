@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { getProductBySlug, getProductsByCategory, getAllProducts } from "@/lib/data"
 import { ProductCard } from "@/components/product/product-card"
+import AppBreadcrumbs from "@/components/layout/breadcrumbs"
 
 interface ProductPageProps {
   params: {
@@ -52,21 +53,13 @@ export default function ProductPage({ params }: ProductPageProps) {
     <div className="pt-32 pb-16">
       <div className="container">
         {/* Breadcrumbs */}
-        <div className="mb-8 py-2 flex items-center text-sm text-gray-500">
-          <Link href="/" className="hover:text-comfy-darkGreen">Home</Link>
-          <ChevronRight className="h-4 w-4 mx-1" />
-          <Link href="/products" className="hover:text-comfy-darkGreen">Products</Link>
-          <ChevronRight className="h-4 w-4 mx-1" />
-          <Link 
-            href={`/products?category=${product.category}`}
-            className="hover:text-comfy-darkGreen capitalize"
-          >
-            {product.category}
-          </Link>
-          <ChevronRight className="h-4 w-4 mx-1" />
-          <span className="text-gray-700">{product.name}</span>
-        </div>
-        
+        <AppBreadcrumbs
+          className="mb-8"
+          links={[
+          { href:'/products', label: 'Products' },
+          { href: `/products?category=${product.category}`, label: product.category },
+          { href: '', label: product.name }
+          ]} />
         {/* Back Link */}
         <Link
           href="/products"
