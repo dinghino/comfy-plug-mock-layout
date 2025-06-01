@@ -28,13 +28,14 @@ export const AppBreadcrumbs: React.FC<AppBreadcrumbsProps> = ({links, className}
         <Breadcrumb className={cn(className)}>
         <BreadcrumbList>
             {items.map(({href, label}, idx) => (
-                <><BreadcrumbItem >
+                <React.Fragment key={idx}>
+                    <BreadcrumbItem >
                     <BreadcrumbLink asChild={!!href}>
                     {href ? <Link href={href}>{label}</Link> : <span>{label}</span>}
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 {idx < items.length -1 ? <BreadcrumbSeparator /> : null}
-                </>
+                </React.Fragment>
 
             ))}
         </BreadcrumbList>
