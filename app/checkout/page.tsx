@@ -1,8 +1,10 @@
 "use client"
-
+import Image from 'next/image'
 import { useState } from "react"
 import Link from "next/link"
 import { ChevronRight, ArrowLeft, CreditCard, Truck, ShieldCheck, AlertTriangle } from "lucide-react"
+
+import AppBreadcrumbs from '@/components/layout/breadcrumbs'
 
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -30,13 +32,13 @@ export default function CheckoutPage() {
     <div className="pt-32 pb-16">
       <div className="container max-w-6xl">
         {/* Breadcrumb */}
-        <div className="mb-8 py-2 flex items-center text-sm text-gray-500">
-          <Link href="/" className="hover:text-comfy-darkGreen">Home</Link>
-          <ChevronRight className="h-4 w-4 mx-1" />
-          <Link href="/products" className="hover:text-comfy-darkGreen">Products</Link>
-          <ChevronRight className="h-4 w-4 mx-1" />
-          <span className="text-gray-700">Checkout</span>
-        </div>
+        {/* Breadcrumbs */}
+        <AppBreadcrumbs
+          className="mb-8"
+          links={[
+          { href:'/products', label: 'Products' },
+          { label: 'Checkout' }
+          ]} />
         
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Checkout Form */}
