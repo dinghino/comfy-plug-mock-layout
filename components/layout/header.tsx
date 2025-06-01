@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -46,25 +47,26 @@ export default function Header() {
     }
   }, [])
 
-  const header = headerVariants({ scrolled })
+  const classes = headerVariants({ scrolled })
 
   return (
-    <header className={header.root()}>
+    <header className={classes.root()}>
       <div className="container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className={header.logo()}>
-            <Leaf className={header.icon()} />
-            <span className={header.brand()}>Comfy</span>
+          <Link href="/">
+            {/* <Leaf className={header.icon()} />
+            <span className={header.brand()}>Comfy</span> */}
+            <Image  className={classes.logo()} alt="comfyplug logo" src="/nav-bar-logo.png" width={210} height={24} />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className={header.nav()}>
+          <nav className={classes.nav()}>
             {/* Search */}
             <div className="relative w-64">
-              <Search className={header.searchIcon()} />
+              <Search className={classes.searchIcon()} />
               <Input 
-                className={header.search()}
+                className={classes.search()}
                 placeholder="Search products..." 
               />
             </div>
@@ -72,7 +74,7 @@ export default function Header() {
             {/* Account */}
             <Button 
               variant="ghost" 
-              className={header.button()}
+              className={classes.button()}
             >
               <User className="h-5 w-5 mr-2" />
               <span>Account</span>
@@ -81,7 +83,7 @@ export default function Header() {
             {/* Cart */}
             <Button 
               variant="ghost" 
-              className={header.button()}
+              className={classes.button()}
               onClick={() => setIsCartOpen(true)}
             >
               <ShoppingBag className="h-5 w-5 mr-2" />
@@ -90,10 +92,10 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className={header.mobileNav()}>
+          <div className={classes.mobileNav()}>
             <Button 
               variant="ghost" 
-              className={header.button()}
+              className={classes.button()}
               onClick={() => setIsCartOpen(true)}
             >
               <ShoppingBag className="h-5 w-5" />
@@ -104,7 +106,7 @@ export default function Header() {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className={header.button()}
+                  className={classes.button()}
                 >
                   <AlignJustify className="h-5 w-5" />
                 </Button>
@@ -118,7 +120,7 @@ export default function Header() {
         </div>
 
         {/* Categories Menu - Desktop Only */}
-        <div className={header.categories()}>
+        <div className={classes.categories()}>
           <nav className="flex items-center justify-center space-x-8">
             {mainNavItems.map((item) => {
               const isActive = pathname.includes(item.href)

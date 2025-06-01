@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from "next/link"
 import { Leaf } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
@@ -10,8 +11,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Leaf className="h-6 w-6" />
-              <span className="font-serif text-2xl font-bold">Comfy</span>
+              {/* <Leaf className="h-6 w-6" />
+              <span className="font-serif text-2xl font-bold">Comfy</span> */}
+              <Image className='saturate-0 brightness-[500%]' alt="comfyplug logo" src="/nav-bar-logo.png" width={210} height={24} />
             </Link>
             <p className="text-comfy-cream/80 max-w-xs">
               Premium cannabis products for your comfort and wellness. Quality you can trust.
@@ -109,7 +111,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-comfy-cream/60 text-sm">
-            &copy; {new Date().getFullYear()} Comfy Cannabis. All rights reserved.
+            &copy; {new Date().getFullYear()} ComfyPlug. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/terms" className="text-comfy-cream/60 hover:text-comfy-cream text-sm transition-colors">

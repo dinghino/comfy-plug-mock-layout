@@ -34,6 +34,7 @@ export const headerVariants = tv({
         searchIcon: "text-comfy-darkGreen",
         button: "text-comfy-darkGreen hover:text-comfy-darkGreen/90 hover:bg-comfy-darkGreen/10",
         categoryLink: "text-comfy-darkGreen/90 hover:text-comfy-darkGreen",
+        logo: '',
       },
       false: {
         icon: "text-comfy-cream",
@@ -45,6 +46,7 @@ export const headerVariants = tv({
         searchIcon: "text-comfy-cream",
         button: "text-comfy-cream hover:text-comfy-cream/90 hover:bg-primary/40",
         categoryLink: "text-comfy-cream/90 hover:text-comfy-cream",
+        logo: 'saturate-0 brightness-[500%]',
       },
     },
     active: {
